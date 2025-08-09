@@ -38,7 +38,7 @@ public class Wendy
         for (int i = 0; i < scopes; i++)
         {
             var state = new QAcidState(script) { Verbose = verbose };
-            state.Testify(executionsPerScope);
+            state.Run(executionsPerScope);
         }
     }
 }

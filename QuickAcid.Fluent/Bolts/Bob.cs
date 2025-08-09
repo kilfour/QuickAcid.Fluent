@@ -1,6 +1,5 @@
 using QuickAcid.Bolts;
-using QuickAcid.Bolts.Nuts;
-using QuickMGenerate.UnderTheHood;
+using QuickFuzzr.UnderTheHood;
 
 namespace QuickAcid.Fluent.Bolts;
 
@@ -45,10 +44,6 @@ public class Bob
         => Bind(_ => label.Tracked(func));
     public Bob Tracked<TNew>(QKey<TNew> key, Func<TNew> func)
         => Bind(_ => key.Label.Tracked(func));
-    public Bob Tracked<TNew>(string label, Func<TNew> func, Func<TNew, string> stringify)
-        => Bind(_ => label.Tracked(func, stringify));
-    public Bob Tracked<TNew>(QKey<TNew> key, Func<TNew> func, Func<TNew, string> stringify)
-        => Bind(_ => key.Label.Tracked(func, stringify));
     // using Context
     public Bob Tracked<TNew>(string label, Func<QAcidContext, TNew> generator)
         => BindState(state => label.Tracked(() => generator(state)));
